@@ -33,7 +33,7 @@ git_last_commit_hash_and_date() {
 
 while IFS= read -r line; do
     repo="rime-repos/$line"
-    #git_repo_sync "$repo"
+    git_repo_sync "$repo"
     git_last_commit_hash_and_date "$repo"
 done < repos.txt
 
