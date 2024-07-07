@@ -5,8 +5,8 @@ package_last_update=""
 
 git_repo_sync() {
     local repo="$1"
-    if git -C "$repo" rev-parse; then
-        git -C "$repo" pull
+    if git -C "$repo" rev-parse > /dev/null; then
+        git -C "$repo" pull > /dev/null
     else
         mkdir -p "$repo" && git -C "$repo" clone "https://github.com/rime/$(basename $repo).git"
     fi
@@ -23,8 +23,6 @@ git_last_commit_hash_and_date() {
     echo "RIME_${prefix^^}_PN=\"${pn}\""
     echo "RIME_${prefix^^}_COMMIT=\"${commit}\""
 
-    echo "date: $date"
-    echo "last_date: $last_date"
     if [[ "$date" > "$last_date" ]]; then
         last_date="$date"
         package_last_update="$pn"
