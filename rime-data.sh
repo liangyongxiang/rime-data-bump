@@ -35,4 +35,4 @@ while IFS= read -r line; do
     git_last_commit_hash_and_date "$repo"
 done < repos.txt
 
-echo "${package_last_update} Last Data: ${last_date//-/}"
+echo "${package_last_update} Last Date: ${last_date//-/}"
