@@ -20,8 +20,8 @@ git_last_commit_hash_and_date() {
     local commit="$(git -C "$repo" rev-parse HEAD)"
     #git -C "$repo" rev-parse --short HEAD
     local date=$(git -C "$repo" --no-pager show --no-patch --format=%cs "$commit")
-    echo "RIME_${prefix^^}_PN=\"${pn}\""
-    echo "RIME_${prefix^^}_COMMIT=\"${commit}\""
+    echo "${prefix^^}_PN=\"${pn}\""
+    echo "${prefix^^}_COMMIT=\"${commit}\""
 
     if [[ "$date" > "$last_date" ]]; then
         last_date="$date"
